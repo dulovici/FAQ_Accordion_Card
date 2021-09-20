@@ -9,22 +9,24 @@ const questions = [...document.querySelectorAll('.question')];
 const icons = [...document.querySelectorAll('.icon')];
 const answers = [...document.querySelectorAll('.answer')];
 
-function openQuestion(e) {
+
+function toggleClasses(element) {
+    element.firstElementChild.classList.toggle("selected");
+    element.firstElementChild.lastElementChild.classList.toggle("flip");
+    element.lastElementChild.classList.toggle('show');
+}
+
+function openQuestion() {
     if(this.firstElementChild.className === 'question selected') {
-    this.firstElementChild.classList.toggle("selected");
-    this.firstElementChild.lastElementChild.classList.toggle("flip");
-    this.lastElementChild.classList.toggle('show');
+    toggleClasses(this)
     }
+
     else {
     questions.forEach(el => el.classList.remove('selected'));
     icons.forEach(el => el.classList.remove('flip'));
     answers.forEach(el => el.classList.remove('show'));
-
-    this.firstElementChild.classList.toggle("selected");
-    this.firstElementChild.lastElementChild.classList.toggle("flip");
-    this.lastElementChild.classList.toggle('show');
+    toggleClasses(this)
     }
-
 }
 
 articles.forEach(question => {

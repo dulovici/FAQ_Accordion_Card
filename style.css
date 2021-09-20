@@ -47,7 +47,6 @@ body{
 }
 
 .container{
-    /* height: 70vh; */
     position: relative;
     display: flex;
     flex-direction: column;
@@ -88,6 +87,7 @@ body{
             list-style: none;
             color:#4a4b5e;
             margin-bottom: 2.5em;
+            height: 23em;
         }
 
         .questions li{
@@ -157,7 +157,6 @@ body{
         display:block;
     }
     .container{
-        /* height: 70vh; */
         position: relative;
         padding: 0;
         display: flex;
