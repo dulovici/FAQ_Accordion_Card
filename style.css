@@ -1,4 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
 
-h1 {
-    color: rebeccapurple;
+
+/* GENERAL */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+body{
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 12px;
+    min-height: 100vh;
+    height: auto;
+    width: 100%;
+    background: linear-gradient(hsl(273, 75%, 66%),hsl(240, 73%, 65%));
+    color: hsl(238, 29%, 16%);
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* LAYOUT */
+.box{
+    position: relative;
+    width: 75%;
+    padding: 1em;
+    max-width: 1100px;
+    min-width: 375px;
+}
+.illustration-box{
+    display:none;
+    position: absolute;
+    z-index: 4;
+    width: 89px;
+    object-fit: cover;
+    height: 184px;
+    top:42%;
+    left: -43px;
+}
+.container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    margin: 11em auto 6em auto;
+    box-shadow:  3px 8px 20px  #5f3dc4;
+    padding-top: 6rem;
+    background: white;
+    border-radius:1.5rem;
+    padding-bottom: 2em;
+}
+    .illustration{
+        position:absolute;
+        top: -137px;
+        width: 266px;
+        height: 250px;
+        margin-right: 32px;
+        background-image: url("./images/illustration-woman-online-mobile.svg"), url("./images/bg-pattern-mobile.svg");
+        background-repeat: no-repeat;
+        background-position: center,100% 90%;
+    }
+    .main-content{
+        width: 100%;
+        padding:3em;
+        font-size: 1rem;
+    }
+        .main-content .title{
+            text-align: center;
+            margin-bottom: 1.5em;
+        }
+        .questions{
+            list-style: none;
+            color:#4a4b5e;
+            margin-bottom: 2.5em;
+            height: 23em;
+        }
+        .questions li{
+            margin-bottom: 1.5em;
+            border-bottom:1px  solid #e7e7e9;
+            width: 100%;
+        }
+        .question{
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+        .question:hover{
+            color:#f47c57;
+        }
+        .question:active {
+            font-weight: 700;
+            color:#1d1e35;
+        }
+        .question-m, .answer p{
+            width:90%;
+        }
+        .icon{
+            width: .8em;
+            height: .6em;
+            margin-top: 0.3em;
+            margin-left: .9em;
+        }
+        .answer{
+            font-size: .9rem;
+            padding-bottom: 1em;
+            line-height: 1.6em;
+            transform: scaleY(0);
+            overflow: hidden;
+            transform-origin: top;
+            transition: all 300ms;
+            height: 0;  
+        }
+
+
+/*DYNAMIC CLASSES  */
+.active .question{
+    font-weight: 700;
+    color:#1d1e35;
+}
+.active .icon {
+    transform: scaleY(-1);
+}
+.active .answer {
+    transform: scaleY(1);
+   transition: all 300ms;
+   height: auto;
+}
+
+
+/* MEDIA QUERIES */
+@media only screen and (min-width: 1220px){
+    .box{
+        width: 80%;
+    }
+
+    .illustration-box{
+        display:block;
+    }
+    .container{
+        position: relative;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-content: center;
+        z-index:1;
+        overflow: hidden;
+        margin-top: 0;
+    }
+    .illustration{
+        position: absolute;
+        z-index: -1;
+        background-image:url("./images/illustration-woman-online-desktop.svg"), url('./images/bg-pattern-desktop.svg');
+        background-position:center,165% 70%;
+        margin-right:0px;
+        width: 750px;
+        height: 100%;
+        min-height: 550px;
+        top:0px;
+        left: -220px;
+    }
+    .main-content{
+        position: relative;
+        margin: 2rem 5rem 1rem 0;
+        width: 50%;
+        background: none;
+        min-width: 410px;
+        background: rgba(255,255,255, 0.9);
+        left: 6em;
+        padding-right: 8em;
+    }
+        .main-content .title{
+                text-align: left;     
+        }
+        .questions {
+            height: 22em;
+        }
+        .answer {
+            padding-bottom: .7em;
+        }
+} 
